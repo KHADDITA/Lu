@@ -29,7 +29,7 @@ const services: Record<
       featured: true,
     },
     {
-      name: "Lifting de pestañas",
+      name: "LIFTING TRADICIONAL",
       detail:
         "Realza la curvatura natural desde la raíz para una mirada abierta, definida y fácil de llevar cada día.",
       duration: "1 h",
