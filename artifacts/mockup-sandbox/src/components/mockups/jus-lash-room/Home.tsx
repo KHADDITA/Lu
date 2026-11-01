@@ -290,19 +290,6 @@ export function Home() {
         .jlr-page .service-book { background: transparent; border: 0; color: var(--gold); cursor: pointer; display: inline-flex; padding: 7px; transition: transform .2s ease; }
         .jlr-page .service-book:hover { transform: translateX(4px); }
         .jlr-page .services-foot { color: var(--muted); font-size: 10px; margin: 23px 0 0; }
-        .jlr-page .ritual { display: grid; grid-template-columns: 1fr 1fr; min-height: 580px; }
-        .jlr-page .ritual-photo { background: #d8c5ab; min-height: 500px; overflow: hidden; position: relative; }
-        .jlr-page .ritual-photo::after { background: linear-gradient(0deg, rgba(28,28,28,.15), transparent 44%); content: ''; inset: 0; position: absolute; }
-        .jlr-page .ritual-photo img { height: 100%; object-fit: cover; object-position: 67% center; position: absolute; width: 100%; }
-        .jlr-page .ritual-caption { bottom: 27px; color: #fffef7; font-family: 'Cormorant Garamond', Georgia, serif; font-size: 22px; font-style: italic; left: 8%; position: absolute; z-index: 1; }
-        .jlr-page .ritual-copy { align-self: center; padding: 12% 13%; }
-        .jlr-page .ritual-copy .eyebrow { display: block; margin-bottom: 25px; }
-        .jlr-page .ritual-copy h2 { font-size: clamp(43px, 5.2vw, 69px); font-weight: 400; letter-spacing: -.05em; line-height: .94; margin: 0; }
-        .jlr-page .ritual-copy h2 em { color: var(--gold); font-weight: 300; }
-        .jlr-page .ritual-copy p { color: var(--muted); font-size: 12px; line-height: 1.9; margin: 26px 0 30px; max-width: 400px; }
-        .jlr-page .ritual-points { border-top: 1px solid var(--line); display: grid; grid-template-columns: 1fr 1fr; margin-top: 39px; padding-top: 19px; }
-        .jlr-page .ritual-points span { color: var(--muted); font-size: 9px; letter-spacing: .1em; text-transform: uppercase; }
-        .jlr-page .ritual-points span + span { border-left: 1px solid var(--line); padding-left: 20px; }
         .jlr-page .booking-section { background: #e9e4d9; padding: 112px 0 120px; }
         .jlr-page .booking-layout { display: grid; gap: 10%; grid-template-columns: .76fr 1.24fr; }
         .jlr-page .booking-intro { padding-top: 19px; }
@@ -432,11 +419,6 @@ export function Home() {
           .jlr-page .service-price { font-size: 11px; grid-column: 2; grid-row: 1 / span 2; gap: 10px; }
           .jlr-page .service-book { padding: 4px 0 4px 6px; }
           .jlr-page .services-foot { font-size: 9px; line-height: 1.6; }
-          .jlr-page .ritual { grid-template-columns: 1fr; }
-          .jlr-page .ritual-photo { min-height: 390px; }
-          .jlr-page .ritual-copy { padding: 67px 25px 72px; }
-          .jlr-page .ritual-copy h2 { font-size: 58px; }
-          .jlr-page .ritual-copy p { font-size: 11px; }
           .jlr-page .booking-section { padding: 79px 0 82px; }
           .jlr-page .booking-layout { gap: 39px; grid-template-columns: 1fr; }
           .jlr-page .booking-intro { padding-top: 0; }
@@ -482,7 +464,6 @@ export function Home() {
         </a>
         <nav className="nav-links" aria-label="Navegación principal">
           <a href="#servicios" onClick={(e) => { e.preventDefault(); scrollTo("servicios"); }}>Servicios</a>
-          <a href="#ritual" onClick={(e) => { e.preventDefault(); scrollTo("ritual"); }}>El espacio</a>
           <a href="#ubicacion" onClick={(e) => { e.preventDefault(); scrollTo("ubicacion"); }}>Ubicación</a>
           <a className="nav-book" href="#reserva" onClick={(e) => { e.preventDefault(); scrollTo("reserva"); }}>Reservar <ArrowUpRight size={14} /></a>
         </nav>
@@ -491,7 +472,6 @@ export function Home() {
         </button>
         <nav className={`mobile-menu${menuOpen ? " open" : ""}`} aria-label="Navegación móvil" aria-hidden={!menuOpen}>
           <a tabIndex={menuOpen ? 0 : -1} href="#servicios" onClick={(e) => { e.preventDefault(); scrollTo("servicios"); }}>Servicios</a>
-          <a tabIndex={menuOpen ? 0 : -1} href="#ritual" onClick={(e) => { e.preventDefault(); scrollTo("ritual"); }}>El espacio</a>
           <a tabIndex={menuOpen ? 0 : -1} href="#ubicacion" onClick={(e) => { e.preventDefault(); scrollTo("ubicacion"); }}>Ubicación</a>
           <a tabIndex={menuOpen ? 0 : -1} href="#reserva" onClick={(e) => { e.preventDefault(); scrollTo("reserva"); }}>Reservá tu turno <ArrowUpRight size={14} /></a>
         </nav>
@@ -521,7 +501,7 @@ export function Home() {
           </div>
           <div className="hero-vertical">BELLEZA EN CALMA — 2025</div>
         </div>
-        <div className="hero-bottom"><ArrowDown size={13} /><span>Descubrí el espacio</span></div>
+        <div className="hero-bottom"><ArrowDown size={13} /><span>Conocé los servicios</span></div>
       </section>
 
       <div className="ticker" aria-hidden="true">
@@ -544,7 +524,7 @@ export function Home() {
           <h2 className="serif">Una mirada más tuya.<br /><em>Un ratito solo tuyo.</em></h2>
           <div className="intro-bottom">
             <p>En JU's LASH ROOM, cada servicio empieza con una conversación. Buscamos realzar lo que ya está ahí, con técnicas cuidadosas y un resultado que se sienta como vos.</p>
-            <a className="text-link" href="#ritual" onClick={(e) => { e.preventDefault(); scrollTo("ritual"); }}>Conocé el espacio <ArrowRight size={14} /></a>
+            <a className="text-link" href="#servicios" onClick={(e) => { e.preventDefault(); scrollTo("servicios"); }}>Explorá los servicios <ArrowRight size={14} /></a>
           </div>
         </div>
       </section>
@@ -586,20 +566,6 @@ export function Home() {
             ))}
           </div>
           <p className="services-foot">Los servicios se realizan con atención personalizada. Consultá por disponibilidad y combinaciones.</p>
-        </div>
-      </section>
-
-      <section className="ritual" id="ritual">
-        <div className="ritual-photo jlr-reveal">
-          <img src="/__mockup/images/lash-editorial-hero.jpg" alt="Detalle de una mirada cuidada con luz natural" loading="lazy" />
-          <span className="ritual-caption">Cuidarte también es hacer una pausa.</span>
-        </div>
-        <div className="ritual-copy jlr-reveal">
-          <span className="eyebrow">El ritual JU</span>
-          <h2 className="serif">Más que un<br /><em>resultado.</em></h2>
-          <p>Un ambiente sereno, una atención cercana y el tiempo que cada servicio merece. Venís a cuidar tu mirada; ojalá también te lleves un momento de calma.</p>
-          <a className="text-link" href="#reserva" onClick={(e) => { e.preventDefault(); scrollTo("reserva"); }}>Agendá tu pausa <ArrowRight size={14} /></a>
-          <div className="ritual-points"><span>Tiempo para vos</span><span>Hecho con cuidado</span></div>
         </div>
       </section>
 
