@@ -35,13 +35,6 @@ const services: Record<
       duration: "1:30 h",
       price: "$1000",
     },
-    {
-      name: "Tinte de pestañas",
-      detail:
-        "Un acabado sutil que intensifica el color natural de tus pestañas.",
-      duration: "30 min",
-      price: "Consultar",
-    },
   ],
   Cejas: [
     {
