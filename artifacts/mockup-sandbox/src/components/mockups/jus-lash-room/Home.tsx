@@ -17,62 +17,68 @@ type ServiceCategory = "Pestañas" | "Cejas" | "Promos";
 
 const services: Record<
   ServiceCategory,
-  { name: string; detail: string; duration: string; price: string; featured?: boolean }[]
+  { name: string; detail?: string; duration?: string; price: string; featured?: boolean }[]
 > = {
   Pestañas: [
     {
       name: "LIFTING COREANO",
       detail:
-        "Incluye limpieza, lifting con técnica coreana, tratamiento intenso de hidratación y cuidado de las pestañas, + tinte nutrición final.",
-      duration: "1:30 h",
+        "Incluye limpieza, lifting con técnica coreana, tratamiento intensivo de hidratación y cuidado de la pestaña, tinte + nutrición final.",
+      duration: "1:30h",
       price: "$1300",
       featured: true,
     },
     {
       name: "LIFTING TRADICIONAL",
-      detail:
-        "Incluye limpieza, lifting, tinte + nutrición natural.",
-      duration: "1:30 h",
+      detail: "Incluye limpieza, lifting, tinte + nutrición reparadora.",
+      duration: "1:30h",
       price: "$1000",
     },
   ],
   Cejas: [
     {
-      name: "Perfilado de cejas",
-      detail:
-        "Diseño personalizado que respeta tu forma natural y armoniza tus facciones.",
-      duration: "45 min",
-      price: "Consultar",
+      name: "PERFILADO",
+      detail: "Incluye limpieza + depilación con pinza.",
+      duration: "30min",
+      price: "$500",
     },
     {
-      name: "Laminado de cejas",
-      detail:
-        "Peinamos y definimos cada pelo para lograr unas cejas ordenadas, flexibles y con más presencia.",
-      duration: "1 h",
-      price: "Consultar",
+      name: "PERFILADO + HENNA",
+      detail: "Incluye limpieza, depilación con pinza + aplicación de henna.",
+      duration: "45min",
+      price: "$700",
     },
     {
-      name: "Henna",
-      detail:
-        "Color y definición temporales, adaptados a tu tono y al resultado que buscás.",
-      duration: "45 min",
-      price: "Consultar",
+      name: "LAMINADO",
+      detail: "Incluye limpieza, depilación con pinza, laminado, tinte + nutrición final.",
+      duration: "1:15h",
+      price: "$1000",
     },
   ],
   Promos: [
     {
-      name: "Mirada completa",
-      detail:
-        "Lifting de pestañas y perfilado de cejas en una misma visita, con diseño pensado para vos.",
-      duration: "2 h",
-      price: "Consultar",
+      name: "PERFILADO + LIFTING TRADICIONAL",
+      price: "$1300",
     },
     {
-      name: "Cejas + henna",
-      detail:
-        "Perfilado personalizado y un toque de color para acompañar la forma natural de tus cejas.",
-      duration: "1 h",
-      price: "Consultar",
+      name: "PERFILADO + LIFTING COREANO",
+      price: "$1600",
+    },
+    {
+      name: "PERFILADO + HENNA + LIFTING TRADICIONAL",
+      price: "$1500",
+    },
+    {
+      name: "PERFILADO + HENNA + LIFTING COREANO",
+      price: "$1800",
+    },
+    {
+      name: "LAMINADO + LIFTING TRADICIONAL",
+      price: "$1800",
+    },
+    {
+      name: "LAMINADO + LIFTING COREANO",
+      price: "$2100",
     },
   ],
 };
@@ -272,6 +278,9 @@ export function Home() {
         .jlr-page .service-list { min-height: 345px; }
         .jlr-page .service-row { align-items: center; border-bottom: 1px solid rgba(28,28,28,.13); display: grid; gap: 22px; grid-template-columns: 1fr minmax(180px, .82fr) 75px 100px; padding: 24px 0; }
         .jlr-page .service-row.featured { background: rgba(255,254,247,.52); margin: 0 -20px; padding-left: 20px; padding-right: 20px; }
+        .jlr-page .service-row.compact { grid-template-columns: minmax(0, 1fr) auto; }
+        .jlr-page .service-row.compact .service-title { grid-column: 1; }
+        .jlr-page .service-row.compact .service-price { grid-column: 2; }
         .jlr-page .service-title { align-items: center; display: flex; gap: 13px; }
         .jlr-page .service-index { color: var(--gold); font-family: 'Cormorant Garamond', Georgia, serif; font-size: 18px; }
         .jlr-page .service-title h3 { font-size: 12px; font-weight: 500; letter-spacing: .12em; margin: 0; }
@@ -546,14 +555,14 @@ export function Home() {
           </div>
           <div className="service-list" id="service-list" role="tabpanel" aria-labelledby={`tab-${activeCategory.toLowerCase()}`}>
             {activeServices.map((service, index) => (
-              <article className={`service-row jlr-reveal${service.featured ? " featured" : ""}`} key={`${activeCategory}-${service.name}`}>
+              <article className={`service-row jlr-reveal${service.featured ? " featured" : ""}${!service.detail && !service.duration ? " compact" : ""}`} key={`${activeCategory}-${service.name}`}>
                 <div className="service-title">
                   <span className="service-index">0{index + 1}</span>
                   <h3>{service.name}</h3>
                   {service.featured && <span className="featured-mark">FAVORITO</span>}
                 </div>
-                <p className="service-description">{service.detail}</p>
-                <span className="service-duration"><Clock3 size={13} /> {service.duration}</span>
+                {service.detail && <p className="service-description">{service.detail}</p>}
+                {service.duration && <span className="service-duration"><Clock3 size={13} /> {service.duration}</span>}
                 <span className="service-price">{service.price}<button className="service-book" type="button" aria-label={`Consultar por ${service.name}`} onClick={() => { chooseService(service.name); scrollTo("reserva"); }}><ArrowUpRight size={16} /></button></span>
               </article>
             ))}
