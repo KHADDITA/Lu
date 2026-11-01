@@ -31,9 +31,9 @@ const services: Record<
     {
       name: "LIFTING TRADICIONAL",
       detail:
-        "Realza la curvatura natural desde la raíz para una mirada abierta, definida y fácil de llevar cada día.",
-      duration: "1 h",
-      price: "Consultar",
+        "Incluye limpieza, lifting, tinte + nutrición natural.",
+      duration: "1:30 h",
+      price: "$1000",
     },
     {
       name: "Tinte de pestañas",
