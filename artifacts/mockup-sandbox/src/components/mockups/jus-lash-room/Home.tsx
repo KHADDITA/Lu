@@ -493,7 +493,6 @@ export function Home() {
           .jlr-reveal { opacity: 1; transform: none; }
         }
       `}</style>
-
       <header className={`site-nav${compact ? " compact" : ""}`}>
         <a className="brand" href="#inicio" onClick={(e) => { e.preventDefault(); scrollTo("inicio"); }} aria-label="JU's LASH ROOM, inicio">
           <img src="/__mockup/images/jus-lash-room-logo.jpg" alt="JU's LASH ROOM" />
@@ -514,10 +513,9 @@ export function Home() {
           <a tabIndex={menuOpen ? 0 : -1} href="#reserva" onClick={(e) => { e.preventDefault(); scrollTo("reserva"); }}>Reservá tu turno <ArrowUpRight size={14} /></a>
         </nav>
       </header>
-
       <section className="hero" id="inicio">
         <div className="hero-copy">
-          <div className="hero-kicker eyebrow">Un momento para vos · Montevideo</div>
+          <div className="hero-kicker eyebrow">Un momento para vos</div>
           <h1 className="serif">Lifting <span>coreano</span> y cejas</h1>
           <p className="hero-subtitle">
             Cejas y pestañas. <strong>Laminado | Perfilado | Henna | Lifting.</strong><br />
@@ -539,9 +537,8 @@ export function Home() {
           </div>
           <div className="hero-vertical">BELLEZA EN CALMA — 2025</div>
         </div>
-        <div className="hero-bottom"><ArrowDown size={13} /><span>Conocé los servicios</span></div>
+        <div className="hero-bottom"><ArrowDown size={13} /></div>
       </section>
-
       <div className="ticker" aria-hidden="true">
         <div className="ticker-track">
           {[0, 1].map((repeat) => (
@@ -552,7 +549,6 @@ export function Home() {
           ))}
         </div>
       </div>
-
       <section className="intro section-shell">
         <aside className="intro-aside jlr-reveal">
           <span className="eyebrow">La belleza de lo propio</span>
@@ -566,7 +562,6 @@ export function Home() {
           </div>
         </div>
       </section>
-
       <section className="services-section" id="servicios">
         <div className="section-shell">
           <div className="services-head jlr-reveal">
@@ -606,7 +601,6 @@ export function Home() {
           <p className="services-foot">Los servicios se realizan con atención personalizada. Consultá por disponibilidad y combinaciones.</p>
         </div>
       </section>
-
       <section className="gallery-section" id="galeria" aria-labelledby="gallery-title">
         <div className="section-shell">
           <div className="gallery-head jlr-reveal">
@@ -664,7 +658,6 @@ export function Home() {
           </div>
         </div>
       </section>
-
       <section className="booking-section" id="reserva">
         <div className="section-shell booking-layout" ref={bookingFormAnchor}>
           <div className="booking-intro jlr-reveal">
@@ -728,7 +721,6 @@ export function Home() {
           </div>
         </div>
       </section>
-
       <section className="location" id="ubicacion">
         <div className="section-shell">
           <div className="location-head jlr-reveal">
@@ -745,7 +737,6 @@ export function Home() {
           allowFullScreen
         />
       </section>
-
       <footer className="footer">
         <div className="footer-main">
           <a className="footer-brand" href="#inicio" aria-label="Volver al inicio" onClick={(e) => { e.preventDefault(); scrollTo("inicio"); }}>
