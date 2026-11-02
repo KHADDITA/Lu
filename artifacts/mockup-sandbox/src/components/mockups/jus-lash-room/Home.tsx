@@ -495,7 +495,7 @@ export function Home() {
         </div>
         <div className="hero-visual">
           <div className="hero-image-wrap">
-            <img className="hero-image" src="/__mockup/images/lash-editorial-hero.jpg" alt="Retrato editorial cálido que destaca una mirada natural" fetchPriority="high" />
+            <img className="hero-image" src="/__mockup/images/jus-lash-room-model.jpeg" alt="Modelo de JU’s LASH ROOM mostrando una mirada natural" fetchPriority="high" />
           </div>
           <div className="image-stamp">
             <div className="stamp-mark"><Sparkles size={15} strokeWidth={1.3} /></div>
