@@ -236,7 +236,7 @@ export function Home() {
         .jlr-page .hero-visual { align-self: stretch; min-height: 540px; position: relative; }
         .jlr-page .hero-image-wrap { height: 100%; margin-left: 5%; overflow: hidden; position: relative; }
         .jlr-page .hero-image-wrap::after { border: 1px solid rgba(255,254,247,.5); content: ''; inset: 15px; pointer-events: none; position: absolute; }
-        .jlr-page .hero-image { height: 100%; inset: 0; object-fit: cover; object-position: 59% center; position: absolute; width: 100%; }
+        .jlr-page .hero-image { height: 100%; inset: 0; object-fit: cover; object-position: 50% 38%; position: absolute; width: 100%; }
         .jlr-page .hero-vertical { color: var(--muted); font-size: 9px; letter-spacing: .22em; position: absolute; right: -29px; top: 50%; transform: translateY(-50%) rotate(90deg); transform-origin: center; }
         .jlr-page .image-stamp {
           align-items: center; background: var(--paper); bottom: 32px; display: flex; gap: 12px; left: -12px;
@@ -292,6 +292,20 @@ export function Home() {
         .jlr-page .service-book { background: transparent; border: 0; color: var(--gold); cursor: pointer; display: inline-flex; padding: 7px; transition: transform .2s ease; }
         .jlr-page .service-book:hover { transform: translateX(4px); }
         .jlr-page .services-foot { color: var(--muted); font-size: 10px; margin: 23px 0 0; }
+        .jlr-page .gallery-section { background: var(--paper); padding: 110px 0 118px; }
+        .jlr-page .gallery-head { align-items: end; display: flex; justify-content: space-between; margin-bottom: 44px; }
+        .jlr-page .gallery-head .eyebrow { display: block; margin-bottom: 15px; }
+        .jlr-page .gallery-head h2 { font-size: clamp(46px, 5.5vw, 72px); font-weight: 400; letter-spacing: -.05em; line-height: .9; margin: 0; }
+        .jlr-page .gallery-head p { color: var(--muted); font-size: 12px; line-height: 1.8; margin: 0 0 4px; max-width: 260px; }
+        .jlr-page .gallery-grid { align-items: start; display: grid; gap: clamp(14px, 2vw, 28px); grid-template-columns: repeat(3, minmax(0, 1fr)); }
+        .jlr-page .gallery-item { margin: 0; }
+        .jlr-page .gallery-item:nth-child(2) { margin-top: 44px; }
+        .jlr-page .gallery-frame { aspect-ratio: 9 / 14; background: var(--sand); overflow: hidden; position: relative; }
+        .jlr-page .gallery-frame::after { border: 1px solid rgba(255,254,247,.5); content: ''; inset: 12px; pointer-events: none; position: absolute; }
+        .jlr-page .gallery-frame img, .jlr-page .gallery-frame video { display: block; height: 100%; object-fit: cover; width: 100%; }
+        .jlr-page .gallery-frame video { background: var(--ink); }
+        .jlr-page .gallery-item figcaption { align-items: baseline; border-top: 1px solid rgba(28,28,28,.16); color: var(--muted); display: flex; font-size: 11px; gap: 10px; justify-content: space-between; margin-top: 14px; padding-top: 12px; }
+        .jlr-page .gallery-item figcaption strong { color: var(--ink); font-size: 11px; font-weight: 500; letter-spacing: .1em; text-transform: uppercase; }
         .jlr-page .booking-section { background: #e9e4d9; padding: 112px 0 120px; }
         .jlr-page .booking-layout { display: grid; gap: 10%; grid-template-columns: .76fr 1.24fr; }
         .jlr-page .booking-intro { padding-top: 19px; }
@@ -376,7 +390,7 @@ export function Home() {
             background: var(--paper); display: flex; flex-direction: column; gap: 0; left: 0; max-height: 0;
             overflow: hidden; padding: 0 25px; position: absolute; right: 0; top: 100%; transition: max-height .4s ease, padding .4s ease;
           }
-          .jlr-page .mobile-menu.open { border-bottom: 1px solid var(--line); max-height: 300px; padding: 8px 25px 22px; }
+          .jlr-page .mobile-menu.open { border-bottom: 1px solid var(--line); max-height: 360px; padding: 8px 25px 22px; }
           .jlr-page .mobile-menu a { border-bottom: 1px solid rgba(28,28,28,.1); font-size: 12px; letter-spacing: .1em; padding: 15px 0; }
           .jlr-page .mobile-menu a:last-child { border: 0; }
           .jlr-page .hero { display: flex; flex-direction: column; min-height: auto; padding: 116px 20px 70px; }
@@ -421,6 +435,16 @@ export function Home() {
           .jlr-page .service-price { font-size: 11px; grid-column: 2; grid-row: 1 / span 2; gap: 10px; }
           .jlr-page .service-book { padding: 4px 0 4px 6px; }
           .jlr-page .services-foot { font-size: 9px; line-height: 1.6; }
+          .jlr-page .gallery-section { padding: 78px 0 82px; }
+          .jlr-page .gallery-head { align-items: start; flex-direction: column; gap: 17px; margin-bottom: 29px; }
+          .jlr-page .gallery-head h2 { font-size: 57px; }
+          .jlr-page .gallery-head p { font-size: 11px; }
+          .jlr-page .gallery-grid {
+            display: flex; gap: 14px; margin: 0 -23px; overflow-x: auto; padding: 0 23px 6px;
+            scroll-padding: 0 23px; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch;
+          }
+          .jlr-page .gallery-item { flex: 0 0 74%; scroll-snap-align: start; }
+          .jlr-page .gallery-item:nth-child(2) { margin-top: 0; }
           .jlr-page .booking-section { padding: 79px 0 82px; }
           .jlr-page .booking-layout { gap: 39px; grid-template-columns: 1fr; }
           .jlr-page .booking-intro { padding-top: 0; }
@@ -466,6 +490,7 @@ export function Home() {
         </a>
         <nav className="nav-links" aria-label="Navegación principal">
           <a href="#servicios" onClick={(e) => { e.preventDefault(); scrollTo("servicios"); }}>Servicios</a>
+          <a href="#galeria" onClick={(e) => { e.preventDefault(); scrollTo("galeria"); }}>Galería</a>
           <a href="#ubicacion" onClick={(e) => { e.preventDefault(); scrollTo("ubicacion"); }}>Ubicación</a>
           <a className="nav-book" href="#reserva" onClick={(e) => { e.preventDefault(); scrollTo("reserva"); }}>Reservar <ArrowUpRight size={14} /></a>
         </nav>
@@ -474,6 +499,7 @@ export function Home() {
         </button>
         <nav className={`mobile-menu${menuOpen ? " open" : ""}`} aria-label="Navegación móvil" aria-hidden={!menuOpen}>
           <a tabIndex={menuOpen ? 0 : -1} href="#servicios" onClick={(e) => { e.preventDefault(); scrollTo("servicios"); }}>Servicios</a>
+          <a tabIndex={menuOpen ? 0 : -1} href="#galeria" onClick={(e) => { e.preventDefault(); scrollTo("galeria"); }}>Galería</a>
           <a tabIndex={menuOpen ? 0 : -1} href="#ubicacion" onClick={(e) => { e.preventDefault(); scrollTo("ubicacion"); }}>Ubicación</a>
           <a tabIndex={menuOpen ? 0 : -1} href="#reserva" onClick={(e) => { e.preventDefault(); scrollTo("reserva"); }}>Reservá tu turno <ArrowUpRight size={14} /></a>
         </nav>
@@ -495,7 +521,7 @@ export function Home() {
         </div>
         <div className="hero-visual">
           <div className="hero-image-wrap">
-            <img className="hero-image" src="/__mockup/images/lash-editorial-hero.jpg" alt="Retrato editorial cálido que destaca una mirada natural" fetchPriority="high" />
+            <img className="hero-image" src="/__mockup/images/lash-modelo-hero.jpg" alt="Clienta con pestañas y cejas recién terminadas, mirando a cámara" fetchPriority="high" />
           </div>
           <div className="image-stamp">
             <div className="stamp-mark"><Sparkles size={15} strokeWidth={1.3} /></div>
@@ -568,6 +594,44 @@ export function Home() {
             ))}
           </div>
           <p className="services-foot">Los servicios se realizan con atención personalizada. Consultá por disponibilidad y combinaciones.</p>
+        </div>
+      </section>
+
+      <section className="gallery-section" id="galeria" aria-labelledby="galeria-titulo">
+        <div className="section-shell">
+          <div className="gallery-head jlr-reveal">
+            <div><span className="eyebrow">Galería</span><h2 className="serif" id="galeria-titulo">Pasá a conocer.</h2></div>
+            <p>Un vistazo al espacio donde te esperamos, con luz natural y todo en calma.</p>
+          </div>
+          <div className="gallery-grid">
+            <figure className="gallery-item jlr-reveal">
+              <div className="gallery-frame">
+                <img src="/__mockup/images/galeria-estudio.jpg" alt="Cabina de pestañas con camilla, lámpara de aro y luz de la mañana sobre el piso de madera" loading="lazy" />
+              </div>
+              <figcaption><strong>El espacio</strong><span>Primer turno del día</span></figcaption>
+            </figure>
+            <figure className="gallery-item jlr-reveal">
+              <div className="gallery-frame">
+                <video
+                  src="/__mockup/images/galeria-recorrido.mp4"
+                  poster="/__mockup/images/galeria-recorrido-poster.jpg"
+                  controls
+                  muted
+                  loop
+                  playsInline
+                  preload="metadata"
+                  aria-label="Recorrido en video por la cabina de JU's LASH ROOM"
+                />
+              </div>
+              <figcaption><strong>Recorrido</strong><span>Por dentro</span></figcaption>
+            </figure>
+            <figure className="gallery-item jlr-reveal">
+              <div className="gallery-frame">
+                <img src="/__mockup/images/galeria-pausa.jpg" alt="Café y un bocado dulce sobre una mesa blanca, junto a un sillón gris" loading="lazy" />
+              </div>
+              <figcaption><strong>La pausa</strong><span>Un rato para vos</span></figcaption>
+            </figure>
+          </div>
         </div>
       </section>
 
