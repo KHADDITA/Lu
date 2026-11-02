@@ -744,7 +744,7 @@ export function Home() {
           </a>
           <span className="footer-note">Que tu pausa sea parte del día.</span>
           <div className="footer-links">
-            <a className="social-link" href="https://www.instagram.com/" target="_blank" rel="noreferrer" aria-label="Instagram"><Instagram size={17} strokeWidth={1.5} /></a>
+            <a className="social-link" href="https://www.instagram.com/julashroom.uy/" target="_blank" rel="noreferrer" aria-label="Instagram"><Instagram size={17} strokeWidth={1.5} /></a>
             <a className="social-link" href={phoneHref} aria-label="Llamar a JU's LASH ROOM"><Phone size={15} strokeWidth={1.5} /></a>
           </div>
         </div>
