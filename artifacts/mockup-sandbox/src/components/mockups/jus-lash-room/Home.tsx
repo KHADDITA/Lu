@@ -626,7 +626,7 @@ export function Home() {
                 />
               </div>
               <figcaption className="gallery-caption">
-                <span><small>Un detalle</small><strong>Un café antes de empezar</strong></span>
+                <span><small>Un detalle</small><strong>Promo duo</strong></span>
                 <span className="gallery-number">01</span>
               </figcaption>
             </figure>
