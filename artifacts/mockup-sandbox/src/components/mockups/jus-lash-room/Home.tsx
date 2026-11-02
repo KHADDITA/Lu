@@ -134,6 +134,15 @@ export function Home() {
   }, []);
 
   useEffect(() => {
+    const sectionId = window.location.hash.slice(1);
+    if (!sectionId) return;
+    const timer = window.setTimeout(() => {
+      document.getElementById(decodeURIComponent(sectionId))?.scrollIntoView({ behavior: "auto", block: "start" });
+    }, 120);
+    return () => window.clearTimeout(timer);
+  }, []);
+
+  useEffect(() => {
     document.querySelectorAll<HTMLElement>("#service-list .jlr-reveal").forEach((node) => {
       node.classList.add("is-visible");
     });
@@ -292,6 +301,24 @@ export function Home() {
         .jlr-page .service-book { background: transparent; border: 0; color: var(--gold); cursor: pointer; display: inline-flex; padding: 7px; transition: transform .2s ease; }
         .jlr-page .service-book:hover { transform: translateX(4px); }
         .jlr-page .services-foot { color: var(--muted); font-size: 10px; margin: 23px 0 0; }
+        .jlr-page .gallery-section { background: var(--paper); padding: 96px 0 108px; scroll-margin-top: 70px; }
+        .jlr-page .gallery-head { align-items: end; display: flex; gap: 32px; justify-content: space-between; margin-bottom: 31px; }
+        .jlr-page .gallery-head .eyebrow { display: block; margin-bottom: 15px; }
+        .jlr-page .gallery-head h2 { font-size: clamp(46px, 5.5vw, 72px); font-weight: 400; letter-spacing: -.05em; line-height: .92; margin: 0; }
+        .jlr-page .gallery-head h2 em { color: var(--gold); font-weight: 300; }
+        .jlr-page .gallery-head p { color: var(--muted); font-size: 11px; line-height: 1.85; margin: 0 0 3px; max-width: 285px; }
+        .jlr-page .gallery-grid { display: grid; gap: 16px; grid-template-columns: .92fr 1.16fr .92fr; }
+        .jlr-page .gallery-card { min-width: 0; margin: 0; }
+        .jlr-page .gallery-media { background: var(--sand); display: block; height: clamp(310px, 34vw, 430px); overflow: hidden; position: relative; }
+        .jlr-page .gallery-media img, .jlr-page .gallery-media video { display: block; height: 100%; object-fit: cover; width: 100%; }
+        .jlr-page .gallery-media img { transition: transform .65s cubic-bezier(.2,.7,.2,1); }
+        .jlr-page .gallery-card:hover .gallery-media img { transform: scale(1.025); }
+        .jlr-page .gallery-coffee img { object-position: 50% 56%; }
+        .jlr-page .gallery-studio img, .jlr-page .gallery-video video { object-position: center; }
+        .jlr-page .gallery-caption { align-items: start; display: flex; justify-content: space-between; padding-top: 14px; }
+        .jlr-page .gallery-caption small { color: var(--gold); display: block; font-size: 8px; letter-spacing: .17em; margin-bottom: 6px; text-transform: uppercase; }
+        .jlr-page .gallery-caption strong { font-size: 11px; font-weight: 500; letter-spacing: .035em; }
+        .jlr-page .gallery-number { color: var(--muted); font-family: 'Cormorant Garamond', Georgia, serif; font-size: 15px; }
         .jlr-page .booking-section { background: #e9e4d9; padding: 112px 0 120px; }
         .jlr-page .booking-layout { display: grid; gap: 10%; grid-template-columns: .76fr 1.24fr; }
         .jlr-page .booking-intro { padding-top: 19px; }
@@ -421,6 +448,13 @@ export function Home() {
           .jlr-page .service-price { font-size: 11px; grid-column: 2; grid-row: 1 / span 2; gap: 10px; }
           .jlr-page .service-book { padding: 4px 0 4px 6px; }
           .jlr-page .services-foot { font-size: 9px; line-height: 1.6; }
+          .jlr-page .gallery-section { padding: 78px 0 82px; }
+          .jlr-page .gallery-head { align-items: start; flex-direction: column; gap: 14px; margin-bottom: 24px; }
+          .jlr-page .gallery-head h2 { font-size: 58px; }
+          .jlr-page .gallery-head p { font-size: 11px; max-width: 330px; }
+          .jlr-page .gallery-grid { gap: 25px; grid-template-columns: 1fr; }
+          .jlr-page .gallery-media { height: min(112vw, 440px); }
+          .jlr-page .gallery-caption { padding-top: 11px; }
           .jlr-page .booking-section { padding: 79px 0 82px; }
           .jlr-page .booking-layout { gap: 39px; grid-template-columns: 1fr; }
           .jlr-page .booking-intro { padding-top: 0; }
@@ -466,6 +500,7 @@ export function Home() {
         </a>
         <nav className="nav-links" aria-label="Navegación principal">
           <a href="#servicios" onClick={(e) => { e.preventDefault(); scrollTo("servicios"); }}>Servicios</a>
+          <a href="#galeria" onClick={(e) => { e.preventDefault(); scrollTo("galeria"); }}>Galería</a>
           <a href="#ubicacion" onClick={(e) => { e.preventDefault(); scrollTo("ubicacion"); }}>Ubicación</a>
           <a className="nav-book" href="#reserva" onClick={(e) => { e.preventDefault(); scrollTo("reserva"); }}>Reservar <ArrowUpRight size={14} /></a>
         </nav>
@@ -474,6 +509,7 @@ export function Home() {
         </button>
         <nav className={`mobile-menu${menuOpen ? " open" : ""}`} aria-label="Navegación móvil" aria-hidden={!menuOpen}>
           <a tabIndex={menuOpen ? 0 : -1} href="#servicios" onClick={(e) => { e.preventDefault(); scrollTo("servicios"); }}>Servicios</a>
+          <a tabIndex={menuOpen ? 0 : -1} href="#galeria" onClick={(e) => { e.preventDefault(); scrollTo("galeria"); }}>Galería</a>
           <a tabIndex={menuOpen ? 0 : -1} href="#ubicacion" onClick={(e) => { e.preventDefault(); scrollTo("ubicacion"); }}>Ubicación</a>
           <a tabIndex={menuOpen ? 0 : -1} href="#reserva" onClick={(e) => { e.preventDefault(); scrollTo("reserva"); }}>Reservá tu turno <ArrowUpRight size={14} /></a>
         </nav>
@@ -568,6 +604,64 @@ export function Home() {
             ))}
           </div>
           <p className="services-foot">Los servicios se realizan con atención personalizada. Consultá por disponibilidad y combinaciones.</p>
+        </div>
+      </section>
+
+      <section className="gallery-section" id="galeria" aria-labelledby="gallery-title">
+        <div className="section-shell">
+          <div className="gallery-head jlr-reveal">
+            <div>
+              <span className="eyebrow">Así se siente una pausa</span>
+              <h2 className="serif" id="gallery-title">Un lugar para <em>vos.</em></h2>
+            </div>
+            <p>La luz de la mañana, el espacio listo y esos pequeños detalles que hacen especial cada visita.</p>
+          </div>
+          <div className="gallery-grid jlr-reveal">
+            <figure className="gallery-card gallery-coffee jlr-reveal">
+              <div className="gallery-media">
+                <img
+                  src="/__mockup/images/jus-lash-room-gallery-coffee.jpeg"
+                  alt="Un café y algo rico junto al sillón de espera del estudio"
+                  loading="lazy"
+                />
+              </div>
+              <figcaption className="gallery-caption">
+                <span><small>Un detalle</small><strong>Un café antes de empezar</strong></span>
+                <span className="gallery-number">01</span>
+              </figcaption>
+            </figure>
+            <figure className="gallery-card gallery-video jlr-reveal">
+              <div className="gallery-media">
+                <video
+                  controls
+                  playsInline
+                  preload="metadata"
+                  poster="/__mockup/images/jus-lash-room-gallery-studio.jpeg"
+                  aria-label="Video del espacio de JU’s LASH ROOM"
+                >
+                  <source src="/__mockup/images/jus-lash-room-gallery-video.mp4" type="video/mp4" />
+                  Tu navegador no puede reproducir este video.
+                </video>
+              </div>
+              <figcaption className="gallery-caption">
+                <span><small>Un vistazo</small><strong>Así te recibimos</strong></span>
+                <span className="gallery-number">02</span>
+              </figcaption>
+            </figure>
+            <figure className="gallery-card gallery-studio jlr-reveal">
+              <div className="gallery-media">
+                <img
+                  src="/__mockup/images/jus-lash-room-gallery-studio.jpeg"
+                  alt="Camilla y herramientas listas en el estudio de pestañas"
+                  loading="lazy"
+                />
+              </div>
+              <figcaption className="gallery-caption">
+                <span><small>El espacio</small><strong>Preparado con calma</strong></span>
+                <span className="gallery-number">03</span>
+              </figcaption>
+            </figure>
+          </div>
         </div>
       </section>
 
